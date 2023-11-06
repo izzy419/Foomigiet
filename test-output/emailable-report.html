@@ -9,60 +9,10 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">Test</a></td><td class="num">0</td><td class="num attn">3</td><td class="num">0</td><td class="num">0</td><td class="num">20,550</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Test</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">45,200</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">com.qa.test.LoginTestcases</td><td><a href="#m0">beforeMethod</a></td><td rowspan="1">1698828864533</td><td rowspan="1">332</td></tr><tr><th colspan="4">Test &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="7">com.qa.test.LoginTestcases</td><td><a href="#m1">afterClass</a></td><td rowspan="1">1698828864886</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m2">afterMethod</a></td><td rowspan="3">1698828864884</td><td rowspan="3">0</td></tr><tr class="skippedeven"><td><a href="#m3">afterMethod</a></td></tr><tr class="skippedeven"><td><a href="#m4">afterMethod</a></td></tr><tr class="skippedeven"><td><a href="#m5">afterTest</a></td><td rowspan="1">1698828864888</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m6">beforeMethod</a></td><td rowspan="2">1698828864882</td><td rowspan="2">0</td></tr><tr class="skippedeven"><td><a href="#m7">beforeMethod</a></td></tr><tr><th colspan="4">Test &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="3">com.qa.test.LoginTestcases</td><td><a href="#m8">invalidEmailOrPhone</a></td><td rowspan="1">1698828864874</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m9">invalidPassword</a></td><td rowspan="1">1698828864879</td><td rowspan="1">0</td></tr><tr class="skippedeven"><td><a href="#m10">successfulLogin</a></td><td rowspan="1">1698828864883</td><td rowspan="1">0</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.qa.test.ProfileUpdate</td><td><a href="#m0">successfulLogin</a></td><td rowspan="1">1699279768511</td><td rowspan="1">27279</td></tr></tbody>
 </table>
-<h2>Test</h2><h3 id="m0">com.qa.test.LoginTestcases#beforeMethod</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>public void com.qa.test.LoginTestcases.invalidEmailOrPhone()</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IllegalArgumentException: Input must be set
-	at org.openqa.selenium.internal.Require.nonNull(Require.java:60)
-	at org.openqa.selenium.support.ui.FluentWait.&lt;init&gt;(FluentWait.java:94)
-	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:74)
-	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:43)
-	at com.qa.NewTest.waitForVisibility(NewTest.java:97)
-	at com.qa.NewTest.click(NewTest.java:103)
-	at com.qa.screens.BaseScreen.clickBSloginBtn(BaseScreen.java:23)
-	at com.qa.test.LoginTestcases.beforeMethod(LoginTestcases.java:60)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">com.qa.test.LoginTestcases#afterClass</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">com.qa.test.LoginTestcases#afterMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">com.qa.test.LoginTestcases#afterMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m4">com.qa.test.LoginTestcases#afterMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m5">com.qa.test.LoginTestcases#afterTest</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m6">com.qa.test.LoginTestcases#beforeMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m7">com.qa.test.LoginTestcases#beforeMethod</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m8">com.qa.test.LoginTestcases#invalidEmailOrPhone</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IllegalArgumentException: Input must be set
-	at org.openqa.selenium.internal.Require.nonNull(Require.java:60)
-	at org.openqa.selenium.support.ui.FluentWait.&lt;init&gt;(FluentWait.java:94)
-	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:74)
-	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:43)
-	at com.qa.NewTest.waitForVisibility(NewTest.java:97)
-	at com.qa.NewTest.click(NewTest.java:103)
-	at com.qa.screens.BaseScreen.clickBSloginBtn(BaseScreen.java:23)
-	at com.qa.test.LoginTestcases.beforeMethod(LoginTestcases.java:60)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m9">com.qa.test.LoginTestcases#invalidPassword</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IllegalArgumentException: Input must be set
-	at org.openqa.selenium.internal.Require.nonNull(Require.java:60)
-	at org.openqa.selenium.support.ui.FluentWait.&lt;init&gt;(FluentWait.java:94)
-	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:74)
-	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:43)
-	at com.qa.NewTest.waitForVisibility(NewTest.java:97)
-	at com.qa.NewTest.click(NewTest.java:103)
-	at com.qa.screens.BaseScreen.clickBSloginBtn(BaseScreen.java:23)
-	at com.qa.test.LoginTestcases.beforeMethod(LoginTestcases.java:60)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m10">com.qa.test.LoginTestcases#successfulLogin</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IllegalArgumentException: Input must be set
-	at org.openqa.selenium.internal.Require.nonNull(Require.java:60)
-	at org.openqa.selenium.support.ui.FluentWait.&lt;init&gt;(FluentWait.java:94)
-	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:74)
-	at org.openqa.selenium.support.ui.WebDriverWait.&lt;init&gt;(WebDriverWait.java:43)
-	at com.qa.NewTest.waitForVisibility(NewTest.java:97)
-	at com.qa.NewTest.click(NewTest.java:103)
-	at com.qa.screens.BaseScreen.clickBSloginBtn(BaseScreen.java:23)
-	at com.qa.test.LoginTestcases.beforeMethod(LoginTestcases.java:60)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 31 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test</h2><h3 id="m0">com.qa.test.ProfileUpdate#successfulLogin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

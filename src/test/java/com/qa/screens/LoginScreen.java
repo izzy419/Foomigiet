@@ -19,9 +19,18 @@ public class LoginScreen extends BaseScreen{
 
 	@AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[1]") private WebElement emailTxtFld;
 	@AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]")private WebElement passwordTxtFld;
-	@AndroidFindBy (xpath = "Login")private WebElement loginBtn;
-	@AndroidFindBy (xpath = "It seems one of your input is invalid") private WebElement errorMsg;
+	@AndroidFindBy (accessibility = "Login")private WebElement loginBtn;
+	@AndroidFindBy (accessibility = "Forgot Password?") private WebElement errorMsg;
+	@AndroidFindBy (accessibility = "input a valid email") private WebElement invalidMailErrMsg;
+	@AndroidFindBy (accessibility = "required") private WebElement required;
 	
+	public boolean invalidMailErrMsgDis () {
+		return invalidMailErrMsg.isDisplayed();
+	}
+	
+	public boolean requiredDis () {
+		return required.isDisplayed();
+	}
 	public LoginScreen enterEmail (String email) {
 		click(emailTxtFld);
 		sendKeys(emailTxtFld, email); 
@@ -37,7 +46,7 @@ public class LoginScreen extends BaseScreen{
 	 
 	 public LoginScreen enterPassword (String password) {
 		 click(passwordTxtFld);
-		// sendKeys(passwordTxtFld, password);
+		 sendKeys(passwordTxtFld, password);
 		 return this;
 	 }
 	 
@@ -47,15 +56,27 @@ public class LoginScreen extends BaseScreen{
 		 return this;
 	 }
 	 
-	 public boolean getErrMsg() {
-		 return getAttribute(errorMsg, "displayed");
+	 public LoginScreen hideKeyboard() {
+		 LoginScreen.driver.navigate().back();
+		 return this;
+	 }
+	 
+	 
+	 public WebElement getErrMsg() {
+		 return errorMsg ;
 	 }
 
 	 
-	 public HomeScreen login () {
+	 public HomeScreen clickLogin () {
 		 click(loginBtn);
 		 return new HomeScreen(driver);
 	 }
 	 
+	 public NavBar login (String username, String password) {
+		enterEmail(username);
+		enterPassword(password);
+		clickLogin();
+		return new NavBar(driver); 
+	 }
 	
 }

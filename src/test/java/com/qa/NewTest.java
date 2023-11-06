@@ -24,8 +24,8 @@ import org.testng.annotations.AfterTest;
 
 public class NewTest {
 	
-	protected  AppiumDriver driver;
-	protected  Properties props;
+	protected static AppiumDriver driver;
+	protected  static Properties props;
 	InputStream inputStream;	
 	 
 
@@ -109,18 +109,18 @@ public class NewTest {
         	waitForVisibility(e);
         	e.clear();
         }
-        
+
+        public void clear (AppiumDriver driver ) {
+        	driver.navigate().back();
+        }
         public void sendKeys (WebElement e, String txt) {
         	waitForVisibility(e);
         	e.sendKeys(txt);
         }
         
-        public boolean getAttribute (WebElement e, String attribute) {
-        	waitForVisibility(e);
-        	return e.getAttribute(attribute) != null;
-        }
         
-        public String getAttribute1 (WebElement e, String attribute) {
+        
+        public String getAttribute (WebElement e, String attribute) {
         	waitForVisibility(e);
         	return e.getAttribute(attribute);
         }

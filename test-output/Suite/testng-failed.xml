@@ -6,19 +6,17 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.qa.test.LoginTestcases">
+      <class name="com.qa.test.ProfileUpdate">
         <methods>
-          <include name="afterClass"/>
-          <include name="beforeTest"/>
-          <include name="successfulLogin"/>
-          <include name="invalidPassword"/>
-          <include name="afterMethod"/>
-          <include name="invalidEmailOrPhone"/>
-          <include name="beforeClass"/>
           <include name="beforeMethod"/>
+          <include name="successfulLogin"/>
+          <include name="beforeTest"/>
+          <include name="beforeClass"/>
+          <include name="afterMethod"/>
           <include name="afterTest"/>
+          <include name="afterClass"/>
         </methods>
-      </class> <!-- com.qa.test.LoginTestcases -->
+      </class> <!-- com.qa.test.ProfileUpdate -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

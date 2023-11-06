@@ -6,11 +6,12 @@
       <class name="com.qa.test.LoginTestcases">
         <methods>
           <include name="afterClass"/>
-          <include name="afterTest"/>
+          <include name="invalidEmail"/>
           <include name="beforeTest"/>
-          <include name="invalidEmailOrPhone"/>
+          <include name="afterMethod"/>
           <include name="beforeClass"/>
           <include name="beforeMethod"/>
+          <include name="afterTest"/>
         </methods>
       </class> <!-- com.qa.test.LoginTestcases -->
     </classes>

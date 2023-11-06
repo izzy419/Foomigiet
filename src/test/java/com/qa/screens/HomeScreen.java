@@ -18,7 +18,7 @@ public class HomeScreen extends NewTest{
 	@AndroidFindBy (accessibility ="Book a fumigation service today") WebElement homeMsg;
 	
 	public String getHomeMsg() {
-		 return getAttribute1(homeMsg, "content-desc");
+		 return getAttribute(homeMsg, "content-desc");
 	 }
 
 }

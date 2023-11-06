@@ -1,268 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="0" failed="0" skipped="3">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-11-01T09:54:04 WAT" name="Suite" finished-at="2023-11-01T09:54:24 WAT" duration-ms="20550">
+  <suite started-at="2023-11-06T15:09:11 WAT" name="Suite" finished-at="2023-11-06T15:09:56 WAT" duration-ms="45200">
     <groups>
     </groups>
-    <test started-at="2023-11-01T09:54:04 WAT" name="Test" finished-at="2023-11-01T09:54:24 WAT" duration-ms="20550">
-      <class name="com.qa.test.LoginTestcases">
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.qa.test.LoginTestcases@2cd76f31]" started-at="2023-11-01T09:54:04 WAT" name="beforeTest" finished-at="2023-11-01T09:54:24 WAT" duration-ms="20167" status="PASS">
+    <test started-at="2023-11-06T15:09:11 WAT" name="Test" finished-at="2023-11-06T15:09:56 WAT" duration-ms="45200">
+      <class name="com.qa.NewTest">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.qa.NewTest@1fa121e2]" started-at="2023-11-06T15:09:11 WAT" name="beforeTest" finished-at="2023-11-06T15:09:27 WAT" duration-ms="16580" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method is-config="true" signature="beforeClass()[pri:0, instance:com.qa.test.LoginTestcases@2cd76f31]" started-at="2023-11-01T09:54:24 WAT" name="beforeClass" finished-at="2023-11-01T09:54:24 WAT" duration-ms="4" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeClass -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.qa.test.LoginTestcases@2cd76f31]" started-at="2023-11-01T09:54:24 WAT" name="beforeMethod" finished-at="2023-11-01T09:54:24 WAT" duration-ms="332" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void com.qa.test.LoginTestcases.invalidEmailOrPhone()]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.IllegalArgumentException">
-            <message>
-              <![CDATA[Input must be set]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Input must be set
-at org.openqa.selenium.internal.Require.nonNull(Require.java:60)
-at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:94)
-at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:74)
-at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:43)
-at com.qa.NewTest.waitForVisibility(NewTest.java:97)
-at com.qa.NewTest.click(NewTest.java:103)
-at com.qa.screens.BaseScreen.clickBSloginBtn(BaseScreen.java:23)
-at com.qa.test.LoginTestcases.beforeMethod(LoginTestcases.java:60)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
-at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:577)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:848)
-at org.testng.TestRunner.run(TestRunner.java:621)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-at org.testng.TestNG.runSuites(TestNG.java:1114)
-at org.testng.TestNG.run(TestNG.java:1082)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.IllegalArgumentException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="invalidEmailOrPhone()[pri:0, instance:com.qa.test.LoginTestcases@2cd76f31]" started-at="2023-11-01T09:54:24 WAT" name="invalidEmailOrPhone" finished-at="2023-11-01T09:54:24 WAT" duration-ms="0" status="SKIP">
-          <exception class="java.lang.IllegalArgumentException">
-            <message>
-              <![CDATA[Input must be set]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Input must be set
-at org.openqa.selenium.internal.Require.nonNull(Require.java:60)
-at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:94)
-at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:74)
-at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:43)
-at com.qa.NewTest.waitForVisibility(NewTest.java:97)
-at com.qa.NewTest.click(NewTest.java:103)
-at com.qa.screens.BaseScreen.clickBSloginBtn(BaseScreen.java:23)
-at com.qa.test.LoginTestcases.beforeMethod(LoginTestcases.java:60)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
-at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:577)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:848)
-at org.testng.TestRunner.run(TestRunner.java:621)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-at org.testng.TestNG.runSuites(TestNG.java:1114)
-at org.testng.TestNG.run(TestNG.java:1082)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.IllegalArgumentException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- invalidEmailOrPhone -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.qa.test.LoginTestcases@2cd76f31]" started-at="2023-11-01T09:54:24 WAT" name="afterMethod" finished-at="2023-11-01T09:54:24 WAT" duration-ms="0" status="SKIP">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.qa.test.LoginTestcases@2cd76f31]" started-at="2023-11-01T09:54:24 WAT" name="beforeMethod" finished-at="2023-11-01T09:54:24 WAT" duration-ms="0" status="SKIP">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="invalidPassword()[pri:0, instance:com.qa.test.LoginTestcases@2cd76f31]" started-at="2023-11-01T09:54:24 WAT" name="invalidPassword" finished-at="2023-11-01T09:54:24 WAT" duration-ms="0" status="SKIP">
-          <exception class="java.lang.IllegalArgumentException">
-            <message>
-              <![CDATA[Input must be set]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Input must be set
-at org.openqa.selenium.internal.Require.nonNull(Require.java:60)
-at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:94)
-at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:74)
-at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:43)
-at com.qa.NewTest.waitForVisibility(NewTest.java:97)
-at com.qa.NewTest.click(NewTest.java:103)
-at com.qa.screens.BaseScreen.clickBSloginBtn(BaseScreen.java:23)
-at com.qa.test.LoginTestcases.beforeMethod(LoginTestcases.java:60)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
-at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:577)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:848)
-at org.testng.TestRunner.run(TestRunner.java:621)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-at org.testng.TestNG.runSuites(TestNG.java:1114)
-at org.testng.TestNG.run(TestNG.java:1082)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.IllegalArgumentException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- invalidPassword -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.qa.test.LoginTestcases@2cd76f31]" started-at="2023-11-01T09:54:24 WAT" name="afterMethod" finished-at="2023-11-01T09:54:24 WAT" duration-ms="0" status="SKIP">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.qa.test.LoginTestcases@2cd76f31]" started-at="2023-11-01T09:54:24 WAT" name="beforeMethod" finished-at="2023-11-01T09:54:24 WAT" duration-ms="0" status="SKIP">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- beforeMethod -->
-        <test-method signature="successfulLogin()[pri:0, instance:com.qa.test.LoginTestcases@2cd76f31]" started-at="2023-11-01T09:54:24 WAT" name="successfulLogin" finished-at="2023-11-01T09:54:24 WAT" duration-ms="0" status="SKIP">
-          <exception class="java.lang.IllegalArgumentException">
-            <message>
-              <![CDATA[Input must be set]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Input must be set
-at org.openqa.selenium.internal.Require.nonNull(Require.java:60)
-at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:94)
-at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:74)
-at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:43)
-at com.qa.NewTest.waitForVisibility(NewTest.java:97)
-at com.qa.NewTest.click(NewTest.java:103)
-at com.qa.screens.BaseScreen.clickBSloginBtn(BaseScreen.java:23)
-at com.qa.test.LoginTestcases.beforeMethod(LoginTestcases.java:60)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:69)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:390)
-at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:325)
-at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:810)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:577)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
-at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
-at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
-at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
-at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:848)
-at org.testng.TestRunner.run(TestRunner.java:621)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
-at org.testng.TestNG.runSuites(TestNG.java:1114)
-at org.testng.TestNG.run(TestNG.java:1082)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.IllegalArgumentException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- successfulLogin -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.qa.test.LoginTestcases@2cd76f31]" started-at="2023-11-01T09:54:24 WAT" name="afterMethod" finished-at="2023-11-01T09:54:24 WAT" duration-ms="0" status="SKIP">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.qa.test.LoginTestcases@2cd76f31]" started-at="2023-11-01T09:54:24 WAT" name="afterClass" finished-at="2023-11-01T09:54:24 WAT" duration-ms="0" status="SKIP">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterClass -->
-        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.qa.test.LoginTestcases@2cd76f31]" started-at="2023-11-01T09:54:24 WAT" name="afterTest" finished-at="2023-11-01T09:54:24 WAT" duration-ms="0" status="SKIP">
+        <test-method is-config="true" signature="afterTest()[pri:0, instance:com.qa.NewTest@1fa121e2]" started-at="2023-11-06T15:09:55 WAT" name="afterTest" finished-at="2023-11-06T15:09:56 WAT" duration-ms="524" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
-      </class> <!-- com.qa.test.LoginTestcases -->
+      </class> <!-- com.qa.NewTest -->
+      <class name="com.qa.test.ProfileUpdate">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:com.qa.test.ProfileUpdate@5dda768f]" started-at="2023-11-06T15:09:27 WAT" name="beforeClass" finished-at="2023-11-06T15:09:27 WAT" duration-ms="5" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method is-config="true" signature="beforeMethod(java.lang.reflect.Method)[pri:0, instance:com.qa.test.ProfileUpdate@5dda768f]" started-at="2023-11-06T15:09:27 WAT" name="beforeMethod" finished-at="2023-11-06T15:09:28 WAT" duration-ms="783" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.qa.test.ProfileUpdate.successfulLogin() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="successfulLogin()[pri:0, instance:com.qa.test.ProfileUpdate@5dda768f]" started-at="2023-11-06T15:09:28 WAT" name="successfulLogin" finished-at="2023-11-06T15:09:55 WAT" duration-ms="27279" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- successfulLogin -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.qa.test.ProfileUpdate@5dda768f]" started-at="2023-11-06T15:09:55 WAT" name="afterMethod" finished-at="2023-11-06T15:09:55 WAT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.qa.test.ProfileUpdate@5dda768f]" started-at="2023-11-06T15:09:55 WAT" name="afterClass" finished-at="2023-11-06T15:09:55 WAT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- com.qa.test.ProfileUpdate -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

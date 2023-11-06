@@ -1,14 +1,17 @@
 {
+   "invalidEmail0":{
+   "email":"Oladehind@gmail"
+   },
    "invalidEmail":{
-     "email":"Oladehinde@gmail",
-     "password":"Damilola1"
+     "email":"Oladehind@gmail.com",
+     "password":"Damilola1."
    },
    "inavlidPassword":{
      "email":"oladehindedammi@gmail.com",
-     "password":"Damilola"  
+     "password":"Damilola1."  
    },
    "validEmailAndPassword":{
     "email":"oladehindedammi@gmail.com",
-     "password":"Password1@" 
+     "password":"Passcode1@" 
    }
    }
