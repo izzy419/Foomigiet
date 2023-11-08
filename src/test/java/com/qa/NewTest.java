@@ -1,5 +1,6 @@
 package com.qa;
 
+import com.google.common.collect.ImmutableMap;
 import com.qa.utilis.Testutilis;
 
 import io.appium.java_client.AppiumBy;
@@ -16,8 +17,10 @@ import java.time.Duration;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
@@ -97,7 +100,10 @@ public class NewTest {
         	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));// You removed the Testutilis.WAIT variable here because it kept returning the input is null error
         	wait.until(ExpectedConditions.visibilityOf(e));
         	 }
-      
+        public void waitForInvisibility(WebElement e) {
+        	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));// You removed the Testutilis.WAIT variable here because it kept returning the input is null error
+        	wait.until(ExpectedConditions.invisibilityOf(e));
+        	 }
         
         public void click (WebElement e) {
         	waitForVisibility(e);
@@ -124,8 +130,32 @@ public class NewTest {
         	waitForVisibility(e);
         	return e.getAttribute(attribute);
         }
+        
+       public void swipeAction (WebElement e,String direction) {
+    	   waitForVisibility(e);
+    	   ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+    	       "elementId", ((RemoteWebElement) e).getId(), 
+    	       "direction", direction,
+    	       "percent", 0.75
+    	   ));
+       }
        
-
+       public void longPressAction (WebElement e) {
+        	   waitForVisibility(e);
+        	   ((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
+        	       "elementId", ((RemoteWebElement) e).getId(),
+        	       "duration", 2000
+        	   ));
+       }
+       
+       public void scrollUsingElement (WebElement e,int x,int y) {
+    	   waitForVisibility(e);
+    	   ((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(
+    	       "elementId", ((RemoteWebElement) e).getId(),
+    	       "endX", x,
+    	       "endY", x
+    	   ));
+       }
 
  @AfterTest
   public void afterTest() {

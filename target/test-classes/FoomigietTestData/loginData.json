@@ -13,5 +13,11 @@
    "validEmailAndPassword":{
     "email":"oladehindedammi@gmail.com",
      "password":"Passcode1@" 
+   },
+   "profileDetails":{
+   "phoneNumber":"08024707125",
+   "address":"10 testing through appium close",
+   "city":"Ikeja"
    }
+   
    }

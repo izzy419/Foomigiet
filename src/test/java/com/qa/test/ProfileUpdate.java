@@ -84,7 +84,33 @@ public class ProfileUpdate extends NewTest {
       Assert.assertEquals(profile.fullNameProps(), "false");
       Assert.assertEquals(profile.emailProps(), "false");
       
+	  Assert.assertEquals(profile.phoneNoProps(),"false");
+	  
+	  profile.clickEdit();
+	  
+	  profile.scrollProfile();
+	  
+	  profile.enterPhoneNo((loginUsers.getJSONObject("profileDetails").getString("phoneNumber")))
+	         .clickLocationType()
+	         .homeLocationType()
+	         .enterAddress((loginUsers.getJSONObject("profileDetails").getString("address")))
+	         .entercity((loginUsers.getJSONObject("profileDetails").getString("city")))
+	         .hideKeyboard()
+	         .clickState()
+	         .lagosState()
+	         .clickLGA()
+	         .ikejaLGA()
+	         .clickSaveChanges();
+	  
+	  
+	 Assert.assertEquals(profile.updating().isDisplayed(), true);
+	  
+	 profile.saveChangesVisibility();
 	 
+	   System.out.println(profile.getAddress());
+	   System.out.println((loginUsers.getJSONObject("profileDetails").getString("address")));
+	   
+	  Assert.assertEquals(profile.getAddress(),(loginUsers.getJSONObject("profileDetails").getString("address")));
 	
 	  
   }

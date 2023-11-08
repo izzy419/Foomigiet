@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Nov 03 11:27:40 WAT 2023</td>
+<td>Started on:</td><td>Wed Nov 08 10:26:17 WAT 2023</td>
 </tr>
-<tr><td>Total time:</td><td>17 seconds (17248 ms)</td>
+<tr><td>Total time:</td><td>67 seconds (67460 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -76,9 +76,14 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.qa.test.LoginTestcases.invalidEmail()'><b>invalidEmail</b><br>Test class: com.qa.test.LoginTestcases</td>
-<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;com.qa.screens.LoginScreen.enterEmail(String)&quot; because &quot;this.login&quot; is null
-	at com.qa.test.LoginTestcases.invalidEmail(LoginTestcases.java:75)
+<td title='com.qa.test.ProfileUpdate.successfulLogin()'><b>successfulLogin</b><br>Test class: com.qa.test.ProfileUpdate</td>
+<td><div><pre>java.lang.AssertionError: expected [10 testing through appium close] but found [com.qa.screens.ProfileScreen@756c67cd]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:644)
+	at com.qa.test.ProfileUpdate.successfulLogin(ProfileUpdate.java:105)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -107,9 +112,14 @@ function toggleAllBoxes() {
 	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-</pre></div><a href='#' onClick='toggleBox("stack-trace932118570", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace932118570'><pre>java.lang.NullPointerException: Cannot invoke &quot;com.qa.screens.LoginScreen.enterEmail(String)&quot; because &quot;this.login&quot; is null
-	at com.qa.test.LoginTestcases.invalidEmail(LoginTestcases.java:75)
+</pre></div><a href='#' onClick='toggleBox("stack-trace177589009", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace177589009'><pre>java.lang.AssertionError: expected [10 testing through appium close] but found [com.qa.screens.ProfileScreen@756c67cd]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:644)
+	at com.qa.test.ProfileUpdate.successfulLogin(ProfileUpdate.java:105)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -139,8 +149,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>0</td>
-<td>com.qa.test.LoginTestcases@510f3d34</td></tr>
+<td>47</td>
+<td>com.qa.test.ProfileUpdate@710f4dc7</td></tr>
 </table><p>
 </body>
 </html>
