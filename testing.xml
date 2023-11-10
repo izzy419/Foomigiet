@@ -5,8 +5,8 @@
 	</listeners>
   <test name="Test">
     <classes>
-      <class name="com.qa.NewTest"/>
-      <!--<class name ="com.qa.test.LoginTestcases"/>-->
+     <!-- <class name="com.qa.NewTest"/>--> 
+      <class name ="com.qa.test.LoginTestcases"/>
       <class name ="com.qa.test.ProfileUpdate"/>
     </classes>
   </test> <!-- Test -->

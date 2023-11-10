@@ -5,6 +5,7 @@ import com.qa.utilis.Testutilis;
 
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.InteractsWithApps;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -29,13 +30,16 @@ public class NewTest {
 	
 	protected static AppiumDriver driver;
 	protected  static Properties props;
+	protected static String dateTime;
+	Testutilis utils;
 	InputStream inputStream;	
 	 
 
   @BeforeTest
   public void beforeTest() throws Exception {
 	  
-	   
+	  utils = new Testutilis();
+	  dateTime = utils.getDateTime();
 	  try {
 
 		  props = new Properties();
@@ -74,19 +78,9 @@ public class NewTest {
 				driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 				
 				By skipBtn = AppiumBy.accessibilityId("Skip");
-			  //By LogInBtn = AppiumBy.accessibilityId("Log In");
-//			    By email = AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[1]");
-//			    By password = AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]");
-//				By log = AppiumBy.accessibilityId("Login");
-//			    ////android.widget.Button[@content-desc="Skip"]
 				
 				driver.findElement(skipBtn).click();
-				//driver.findElement(LogInBtn).click();
-//				driver.findElement(email).click();
-//				driver.findElement(email).sendKeys("oladehindedammi@gmail.com");
-//				driver.findElement(password).click();
-//				driver.findElement(password).sendKeys("Password1@");
-//				driver.findElement(log).click();
+
 				
 		  
 	  } catch (Exception e) {
@@ -96,6 +90,13 @@ public class NewTest {
 	  
 	  }
   
+   public AppiumDriver getDriver () {
+	   return driver;
+   }
+  
+   public String getDateTime() {
+	   return dateTime;
+   }
         public void waitForVisibility(WebElement e) {
         	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));// You removed the Testutilis.WAIT variable here because it kept returning the input is null error
         	wait.until(ExpectedConditions.visibilityOf(e));
@@ -156,7 +157,27 @@ public class NewTest {
     	       "endY", x
     	   ));
        }
+       
+//       public WebElement scrollToElement () {
+//    	   return driver.findElement(AppiumBy.androidUIAutomator(
+//    			   
+////    			   "new UiScrollable(new UiSelector()" + ".description(\"<parent_locator>")).scrollIntoView("
+////			   		+ "new UiSelector().description(\"<child_locator>\"));");
+//    			   
+//    		        "new UiScrollable(new UiSelector().scrollable(true))." +
+//                    "scrollIntoView(" +
+//                        "new UiSelector().description(\"test-Price\")" +
+//                    ");"
+//                        )
+//    			  }
+       
+       public void closeApp() {
+    	((InteractsWithApps)driver).terminateApp(props.getProperty("androidAppPackage"));
+       }
 
+       public void launchApp () {
+    	   ((InteractsWithApps)driver).activateApp(props.getProperty("androidAppPackage"));
+       }
  @AfterTest
   public void afterTest() {
 	 driver.quit();

@@ -52,7 +52,8 @@ public class ProfileUpdate extends NewTest {
 				loginData.close();
 			}
 		}
-		  
+//	  closeApp();
+//      launchApp();
 	  }
   
   @AfterClass
@@ -73,7 +74,7 @@ public class ProfileUpdate extends NewTest {
   
   
   @Test()
-  public void successfulLogin() throws Exception {
+  public void upadateProfile() throws Exception {
 	  
 	  navbar = login.login((loginUsers.getJSONObject("validEmailAndPassword").getString("email")),
     		  (loginUsers.getJSONObject("validEmailAndPassword").getString("password")));

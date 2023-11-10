@@ -9,10 +9,10 @@
       <class name="com.qa.test.ProfileUpdate">
         <methods>
           <include name="beforeMethod"/>
-          <include name="successfulLogin"/>
           <include name="beforeTest"/>
           <include name="beforeClass"/>
           <include name="afterMethod"/>
+          <include name="upadateProfile"/>
           <include name="afterTest"/>
           <include name="afterClass"/>
         </methods>
