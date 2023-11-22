@@ -5,18 +5,25 @@
     <listener class-name="com.qa.listeners.TestListener"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
+    <parameter name="emulator" value="false"/>
+    <parameter name="platformVersion" value="12"/>
+    <parameter name="platformName" value="Android"/>
+    <parameter name="udid" value="0977854319007987"/>
+    <parameter name="deviceName" value="Infinix SMART 7 PLUS"/>
     <classes>
-      <class name="com.qa.test.ProfileUpdate">
+      <class name="com.qa.test.LoginTestcases">
         <methods>
+          <include name="afterClass"/>
           <include name="beforeMethod"/>
           <include name="beforeTest"/>
-          <include name="beforeClass"/>
+          <include name="successfulLogin"/>
           <include name="afterMethod"/>
-          <include name="upadateProfile"/>
+          <include name="beforeClass"/>
+          <include name="beforeMethod"/>
+          <include name="afterMethod"/>
           <include name="afterTest"/>
-          <include name="afterClass"/>
         </methods>
-      </class> <!-- com.qa.test.ProfileUpdate -->
+      </class> <!-- com.qa.test.LoginTestcases -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

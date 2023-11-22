@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Testutilis {
 
-	public static final long WAIT = 15;
+	public static final long WAIT = 60;
 	
 	public String getDateTime () {
 		DateFormat dateFormat = new SimpleDateFormat ("yyyy-MM-dd-HH-mm-ss");

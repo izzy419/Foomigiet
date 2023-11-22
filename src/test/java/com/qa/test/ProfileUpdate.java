@@ -52,8 +52,9 @@ public class ProfileUpdate extends NewTest {
 				loginData.close();
 			}
 		}
-//	  closeApp();
-//      launchApp();
+		
+		launchApp();
+		
 	  }
   
   @AfterClass
@@ -93,7 +94,7 @@ public class ProfileUpdate extends NewTest {
 	  
 	  profile.enterPhoneNo((loginUsers.getJSONObject("profileDetails").getString("phoneNumber")))
 	         .clickLocationType()
-	         .homeLocationType()
+	         .officeLocationType()
 	         .enterAddress((loginUsers.getJSONObject("profileDetails").getString("address")))
 	         .entercity((loginUsers.getJSONObject("profileDetails").getString("city")))
 	         .hideKeyboard()

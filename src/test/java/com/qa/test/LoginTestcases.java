@@ -52,6 +52,7 @@ public class LoginTestcases extends NewTest {
   
   @AfterClass
      public void afterClass() {
+	  closeApp();
      }
 
   @BeforeMethod
@@ -63,6 +64,7 @@ public class LoginTestcases extends NewTest {
 
   @AfterMethod
   public void afterMethod() {
+	  
   }
   
 

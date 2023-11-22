@@ -16,7 +16,7 @@ import com.qa.NewTest;
 
 public class TestListener implements ITestListener{
 	
-	public void onTestFaliure (ITestResult result) {
+	public void onTestFailure (ITestResult result) {
 		if (result.getThrowable() != null) {
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
@@ -27,7 +27,7 @@ public class TestListener implements ITestListener{
 	    File file = newtest.getDriver().getScreenshotAs(OutputType.FILE);
 	    
 	    Map <String,String> params = new HashMap <String, String>();
-	    params = result.getTestClass().getXmlTest().getAllParameters();
+	    params = result.getTestContext().getCurrentXmlTest().getAllParameters();
 	    
 	    String imagePath = "Screenshots" + File.separator + params.get("platformName")+ "_"+ params. get("platformVersion")+ "_"
 	    				+ params.get ("deviceName") + File.separator + newtest.getDateTime() + File. separator
