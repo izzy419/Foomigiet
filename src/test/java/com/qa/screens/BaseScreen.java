@@ -10,9 +10,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class BaseScreen extends NewTest{
-	
-	public BaseScreen (AppiumDriver driver) {
-		  PageFactory.initElements(new AppiumFieldDecorator(driver) ,this); }
 
 
  	@AndroidFindBy (accessibility = "Log In")private WebElement BSloginBtn;
@@ -21,17 +18,17 @@ public class BaseScreen extends NewTest{
 	
 	public LoginScreen clickBSloginBtn () {
 		click(BSloginBtn);
-		return new LoginScreen(driver);
+		return new LoginScreen();
 	}
 	
 	public CreateAccountScreen clickBSCreateAcctBtn0 () {
 		click(BSCreateAcctBtn);
-		return new CreateAccountScreen(driver);
+		return new CreateAccountScreen();
 	}
 	
 	public CreateAccountScreen clickGetStartedBtn () {
 		click(getStartedBtn);
-		return new CreateAccountScreen(driver);
+		return new CreateAccountScreen();
 	}
 	
 }

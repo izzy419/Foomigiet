@@ -7,10 +7,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class ProfileScreen extends AcctScreen {
 
-	public ProfileScreen(AppiumDriver driver) {
-		super(driver);
-	}
-
 	@AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]") private WebElement fullNameFld;
 	@AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[2]")private WebElement emailFld;
 	@AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[3]")private WebElement uneditablePhoneNoFld;
@@ -153,7 +149,7 @@ public class ProfileScreen extends AcctScreen {
 	
 	
 	public ProfileScreen hideKeyboard() {
-		 ProfileScreen.driver.navigate().back();
+		 getDriver().navigate().back();
 		 return this;
 	 }
 	

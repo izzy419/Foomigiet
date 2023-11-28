@@ -6,6 +6,7 @@ import com.qa.NewTest;
 import com.qa.screens.BaseScreen;
 import com.qa.screens.HomeScreen;
 import com.qa.screens.LoginScreen;
+import com.qa.utilis.Testutilis;
 
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -31,6 +32,7 @@ public class LoginTestcases extends NewTest {
 	HomeScreen homeScreen;
 	InputStream loginData;
 	JSONObject loginUsers;
+	Testutilis utils;
   
   @BeforeClass
   public void beforeClass() throws Exception {
@@ -47,6 +49,8 @@ public class LoginTestcases extends NewTest {
 				loginData.close();
 			}
 		}
+		
+		 utils = new Testutilis();
 		  
 	  }
   
@@ -57,14 +61,14 @@ public class LoginTestcases extends NewTest {
 
   @BeforeMethod
   public void beforeMethod(Method m) {
-	  baseScreen = new BaseScreen(driver); 
-	  System.out.println("\n" + " ****** starting test: " + m.getName()+ "***** " + "\n");
+	  baseScreen = new BaseScreen(); 
+	  utils.log().info("\n" + " ****** starting test: " + m.getName()+ "***** " + "\n");
 	  
   }
 
   @AfterMethod
-  public void afterMethod() {
-	  
+  public void afterMethod(Method m) {
+	  utils.log().info("\n" + " ****** Finished test: " + m.getName()+ "***** " + "\n");  
   }
   
 
@@ -74,6 +78,8 @@ public class LoginTestcases extends NewTest {
 	 
 	  login = baseScreen.clickBSloginBtn();
 	  login.enterEmail(loginUsers.getJSONObject("invalidEmail0").getString("email"));
+	  
+	  utils.log().info("Email -" + loginUsers.getJSONObject("invalidEmail0").getString("email"));
 	 
 	  boolean isInvalidEmailErrorMsgDispalyed = login.invalidMailErrMsgDis();
 	  Assert.assertEquals(isInvalidEmailErrorMsgDispalyed, true);
@@ -93,6 +99,9 @@ public class LoginTestcases extends NewTest {
 	   
 	   login.enterEmail(loginUsers.getJSONObject("invalidEmail").getString("email"));
 	   login.enterPassword(loginUsers.getJSONObject("invalidEmail").getString("password"));
+	   
+	   utils.log().info("Email -" + loginUsers.getJSONObject("invalidEmail").getString("email"));
+       utils.log().info("Password -" + loginUsers.getJSONObject("invalidEmail").getString("password"));
 	   login.hideKeyboard();
 	   
 	   login.clickLogin();
@@ -147,8 +156,8 @@ public class LoginTestcases extends NewTest {
 	  
 	  String expectedHomeMsg = "Book a fumigation service today";
 	  
-	  System.out.println("Actaul home message: " + homeMessage + "\n " + " Expected home message: " + expectedHomeMsg);
-	  
+      utils.log().info("Actaul home message: " + homeMessage + "\n " + " Expected home message: " + expectedHomeMsg);
+	  utils.log().info("Login Successful");
 	  Assert.assertEquals(homeMessage, expectedHomeMsg);
 	  
 	  

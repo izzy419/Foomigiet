@@ -11,9 +11,6 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class HomeScreen extends NewTest{
 
-	public HomeScreen (AppiumDriver driver) {
-		 PageFactory.initElements(new AppiumFieldDecorator(driver) ,this); 
-	}
 
 	@AndroidFindBy (accessibility ="Book a fumigation service today") WebElement homeMsg;
 	

@@ -12,11 +12,6 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class LoginScreen extends BaseScreen{
               
-	public LoginScreen(AppiumDriver driver) {
-		super(driver);
-	}
-
-
 	@AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[1]") private WebElement emailTxtFld;
 	@AndroidFindBy (xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText[2]")private WebElement passwordTxtFld;
 	@AndroidFindBy (accessibility = "Login")private WebElement loginBtn;
@@ -57,7 +52,7 @@ public class LoginScreen extends BaseScreen{
 	 }
 	 
 	 public LoginScreen hideKeyboard() {
-		 LoginScreen.driver.navigate().back();
+		 getDriver().navigate().back();
 		 return this;
 	 }
 	 
@@ -69,14 +64,14 @@ public class LoginScreen extends BaseScreen{
 	 
 	 public HomeScreen clickLogin () {
 		 click(loginBtn);
-		 return new HomeScreen(driver);
+		 return new HomeScreen();
 	 }
 	 
 	 public NavBar login (String username, String password) {
 		enterEmail(username);
 		enterPassword(password);
 		clickLogin();
-		return new NavBar(driver); 
+		return new NavBar(); 
 	 }
 	
 }

@@ -10,9 +10,13 @@ import io.appium.java_client.InteractsWithApps;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.functions.ExpectedCondition;
-import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.options.XCUITestOptions;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+
 
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import java.io.File;
@@ -25,11 +29,15 @@ import java.time.Duration;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.ThreadContext;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
@@ -41,35 +49,63 @@ import io.netty.handler.codec.base64.Base64;
 
 public class NewTest {
 	
-	protected static AppiumDriver driver;
-	protected  static Properties props;
-	protected static String dateTime;
+	protected static ThreadLocal <AppiumDriver> driver = new ThreadLocal <AppiumDriver> ();
+	protected  static ThreadLocal <Properties> props = new ThreadLocal <Properties>();
+	protected static ThreadLocal <String> dateTime = new ThreadLocal <String>();
 	Testutilis utils;
-	InputStream inputStream;	
+	
+	
+	public NewTest () {
+		  PageFactory.initElements(new AppiumFieldDecorator(getDriver()) ,this);
+		  }
+	
+	   public AppiumDriver getDriver () {
+		   return driver.get();
+	   }
+	   
+	   public void setDriver (AppiumDriver driver2) {
+		   driver.set(driver2);
+	   }
+	  
+	   public Properties getProps () {
+		   return props.get();
+	   }
+	   public void setProps (Properties prop2) {
+		   props.set(prop2);
+	   }
+	  
+	   public String getDateTime () {
+		   return dateTime.get();
+	   }
+	   public void setDateTime (String dateTime2) {
+		   dateTime.set(dateTime2);
+	   }
+	   
 	 
 
 	@BeforeMethod
 	public void beforeMethod() {
-		((CanRecordScreen) driver).startRecordingScreen();
+		((CanRecordScreen) getDriver()).startRecordingScreen();
 	}
 	
 	@AfterMethod
-	public void afterMethod (ITestResult result) {
+	public synchronized void afterMethod (ITestResult result) {
 		
-		String media  = ((CanRecordScreen) driver).stopRecordingScreen();
+		String media  = ((CanRecordScreen) getDriver()).stopRecordingScreen();
 		
 		if (result.getStatus()== 2) {
 			Map <String, String> params = result.getTestContext().getCurrentXmlTest().getAllParameters();
 			
 			String dir = "videos" + File.separator + params.get("platformName")+ "_"+ params. get("platformVersion")+ "_"
-					+ params.get ("deviceName") + File.separator + dateTime + File. separator
+					+ params.get ("deviceName") + File.separator + getDateTime() + File. separator
 					+ result.getTestClass().getRealClass().getSimpleName();
 			
 			File videoDir = new File(dir);
 			
+			synchronized(videoDir) {
 			if (!videoDir.exists()) {
 				videoDir.mkdirs();
-			}
+			}}
 			
 			try {
 				FileOutputStream stream = new FileOutputStream(videoDir + File. separator + result.getName()+".mp4");
@@ -87,56 +123,95 @@ public class NewTest {
 		
 	}
 	
-  //@Parameters({"emulator", "platformName", "platformVersion", "udid", "deviceName"}) String emulator, String plaformName, String platformVersion, String udid, String deviceName
+  @Parameters ({"emulator", "platformName", "platformVersion", "udid", "deviceName","systemPort","chromeDriverPort"})
   @BeforeTest
-  public void beforeTest() throws Exception {
+  public void beforeTest(@Optional("androidOnly") String emulator, String platformName, String platformVersion, String udid, String deviceName, @Optional("androidOnly") String chromeDriverPort,@Optional("androidOnly") 
+  String systemPort ) throws Exception {
 	  
+	  InputStream inputStream = null;
 	  utils = new Testutilis();
-	  dateTime = utils.getDateTime();
+	  setDateTime(utils.dateTime());
+	  Properties props = new Properties();
+	  AppiumDriver driver;
 
+	  String strfile = "logs" +File.separator + platformName + "_" + deviceName;
+	  File logFile = new File(strfile);
+	  if (!logFile.exists()) {
+		  logFile.mkdir();
+	  }
+	  ThreadContext.put("ROUTINGKEY", strfile);
+	  
 	  try {
 
 		  props = new Properties();
 		  String propsFileName = "config.properties";
 		  inputStream = getClass().getClassLoader().getResourceAsStream(propsFileName);
 		  props.load(inputStream);
+		  setProps(props);
 		  
-		  UiAutomator2Options options = new UiAutomator2Options().
-				  setDeviceName(props.getProperty("deviceName")).
+		  URL url = new URL(props.getProperty("appiumUrl"));
+		  
+		  switch(platformName) {
+		  
+		  case "Android" : UiAutomator2Options options = new UiAutomator2Options().
+				  setDeviceName(deviceName).
 				  setPlatformName("Android").
-				  setPlatformVersion("12").
+				  setPlatformVersion(platformVersion).
 				  setAutoGrantPermissions(true).
-				  setUdid(props.getProperty("Udid")).
+				  setUdid(udid).
 				  setAutomationName(props.getProperty("androidAutomationName")).
 				  setAppPackage(props.getProperty("androidAppPackage")).
 				  setAppActivity(props.getProperty("androidAppActivity")).
 				  setAdbExecTimeout(Duration.ofSeconds(Testutilis.WAIT));
 			      
-				  	
 			
 			
-			 // String appURL = getClass().getResource(props.getProperty("androidAppLocation")).getFile();
-			  
-			  //caps.setCapability("app",appURL);
-			
-			
-			
-			
-//			caps.setCapability("newCommandTimeout", 300);
-			
-			URL url = new URL(props.getProperty("appiumUrl"));
 			
 			 driver = new AndroidDriver(url, options);
 			 String sessionId = driver.getSessionId().toString();
-				System.out.println(sessionId);
-				
-				
+			 utils.log().info(sessionId);
+               
 				By skipBtn = AppiumBy.accessibilityId("Skip");
 				
 				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Testutilis.WAIT));
 				
 				wait.until(ExpectedConditions.visibilityOfElementLocated(skipBtn)).click();
 
+				
+				setDriver(driver);
+				
+				break;
+			
+		  case "iOS" : XCUITestOptions options1 = new XCUITestOptions().
+				  setDeviceName(deviceName).
+				  setPlatformName("IOS").
+				  setPlatformVersion(platformVersion).
+				  setUdid(udid).
+				  setBundleId("").
+				  setAutomationName("XCUITest").
+				  setApp(props.getProperty("appUrl"));
+		
+		
+		 driver = new IOSDriver(url, options1);
+		 String sessionId2 = driver.getSessionId().toString();
+		 utils.log().info(sessionId2);
+			
+			By skipBtn1 = AppiumBy.accessibilityId("Skip");
+			
+			WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(Testutilis.WAIT));
+			
+			wait2.until(ExpectedConditions.visibilityOfElementLocated(skipBtn1)).click();
+
+			
+			setDriver(driver);
+			
+			break;
+			
+		default: 
+			throw new Exception("Invalid platform! -" +platformName); 
+		  }
+		  			
+						 
 				
 		  
 	  } catch (Exception e) {
@@ -146,19 +221,13 @@ public class NewTest {
 	  
 	  }
   
-   public AppiumDriver getDriver () {
-	   return driver;
-   }
-  
-   public String getDateTime() {
-	   return dateTime;
-   }
+
         public void waitForVisibility(WebElement e) {
-        	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Testutilis.WAIT));// You removed the Testutilis.WAIT variable here because it kept returning the input is null error
+        	WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(Testutilis.WAIT));// You removed the Testutilis.WAIT variable here because it kept returning the input is null error
         	wait.until(ExpectedConditions.visibilityOf(e));
         	 }
         public void waitForInvisibility(WebElement e) {
-        	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));// You removed the Testutilis.WAIT variable here because it kept returning the input is null error
+        	WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(15));// You removed the Testutilis.WAIT variable here because it kept returning the input is null error
         	wait.until(ExpectedConditions.invisibilityOf(e));
         	 }
         
@@ -190,7 +259,7 @@ public class NewTest {
         
        public void swipeAction (WebElement e,String direction) {
     	   waitForVisibility(e);
-    	   ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+    	   ((JavascriptExecutor) getDriver()).executeScript("mobile: swipeGesture", ImmutableMap.of(
     	       "elementId", ((RemoteWebElement) e).getId(), 
     	       "direction", direction,
     	       "percent", 0.75
@@ -199,7 +268,7 @@ public class NewTest {
        
        public void longPressAction (WebElement e) {
         	   waitForVisibility(e);
-        	   ((JavascriptExecutor) driver).executeScript("mobile: longClickGesture", ImmutableMap.of(
+        	   ((JavascriptExecutor) getDriver()).executeScript("mobile: longClickGesture", ImmutableMap.of(
         	       "elementId", ((RemoteWebElement) e).getId(),
         	       "duration", 2000
         	   ));
@@ -207,7 +276,7 @@ public class NewTest {
        
        public void scrollUsingElement (WebElement e,int x,int y) {
     	   waitForVisibility(e);
-    	   ((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(
+    	   ((JavascriptExecutor) getDriver()).executeScript("mobile: dragGesture", ImmutableMap.of(
     	       "elementId", ((RemoteWebElement) e).getId(),
     	       "endX", x,
     	       "endY", x
@@ -228,15 +297,16 @@ public class NewTest {
 //    			  }
        
        public void closeApp() {
-    	((InteractsWithApps)driver).terminateApp(props.getProperty("androidAppPackage"));
+
+    	((InteractsWithApps)getDriver()).terminateApp(getProps().getProperty("androidAppPackage"));
        }
 
        public void launchApp () {
-    	   ((InteractsWithApps)driver).activateApp(props.getProperty("androidAppPackage"));
+    	   ((InteractsWithApps)getDriver()).activateApp(getProps().getProperty("androidAppPackage"));
        }
  @AfterTest
   public void afterTest() {
-	 driver.quit();
+	 getDriver().quit();
   }
  
 

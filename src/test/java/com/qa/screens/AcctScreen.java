@@ -7,9 +7,6 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class AcctScreen extends NavBar {
 
-	public AcctScreen(AppiumDriver driver) {
-		super(driver);
-	}
 
 	@AndroidFindBy (accessibility ="Profile")private WebElement profileBtn;
 	@AndroidFindBy (accessibility ="Change Password")private WebElement changePasswordBtn;
@@ -19,12 +16,12 @@ public class AcctScreen extends NavBar {
 	
 	public ProfileScreen profile () {
 		click(profileBtn);
-		return new ProfileScreen(driver);
+		return new ProfileScreen();
 	}
 	
 	public ChangePasswordScreen changePassword () {
 		click(changePasswordBtn);
-		return new ChangePasswordScreen(driver);
+		return new ChangePasswordScreen();
 	}
 	
 	public PrivacyPolicyPage privacyPolicy() {
@@ -39,7 +36,7 @@ public class AcctScreen extends NavBar {
 	
 	public LoginScreen logout() {
 		 click(logoutBtn);
-		 return new LoginScreen(driver);
+		 return new LoginScreen();
 	}
 	
 		

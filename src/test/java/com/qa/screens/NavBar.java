@@ -11,8 +11,6 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 
 public class NavBar extends NewTest {
 
-	public NavBar (AppiumDriver driver) {
-		  PageFactory.initElements(new AppiumFieldDecorator(driver) ,this); }
 
 	@AndroidFindBy (accessibility =" Home")private WebElement home;
 	@AndroidFindBy (accessibility =" Account")private WebElement account;
@@ -20,16 +18,16 @@ public class NavBar extends NewTest {
 	
 	public HomeScreen clickHome() {
 		click(home);
-		return new HomeScreen(driver);
+		return new HomeScreen();
 	}
 	
 	public AcctScreen clickAccount() {
 		click (account);
-		return new AcctScreen(driver);
+		return new AcctScreen();
 	}
 	
 	public ScheduleScreen clickShedule () {
 		click (schedule);
-		return new ScheduleScreen(driver);
+		return new ScheduleScreen();
 	}
 }

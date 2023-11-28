@@ -34,11 +34,12 @@ public class ProfileUpdate extends NewTest {
 	NavBar navbar;
 	AcctScreen acct;
 	ProfileScreen profile;
-	InputStream loginData;
+	
 	JSONObject loginUsers;
   
   @BeforeClass
   public void beforeClass() throws Exception {
+	  InputStream loginData = null;
 		try {
 			String dataFileName = "FoomigietTestData/loginData.json";
 			loginData = getClass().getClassLoader().getResourceAsStream(dataFileName);
@@ -63,7 +64,7 @@ public class ProfileUpdate extends NewTest {
 
   @BeforeMethod
   public void beforeMethod(Method m) {
-	  baseScreen = new BaseScreen(driver); 
+	  baseScreen = new BaseScreen(); 
 	  System.out.println("\n" + " ****** starting test: " + m.getName()+ "***** " + "\n");
 	  login = baseScreen.clickBSloginBtn();
 	  

@@ -4,26 +4,31 @@
   <listeners>
     <listener class-name="com.qa.listeners.TestListener"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" name="Real Android(failed)">
     <parameter name="emulator" value="false"/>
     <parameter name="platformVersion" value="12"/>
+    <parameter name="chromeDriverPort" value="11000"/>
     <parameter name="platformName" value="Android"/>
     <parameter name="udid" value="0977854319007987"/>
     <parameter name="deviceName" value="Infinix SMART 7 PLUS"/>
+    <parameter name="systemPort" value="10000"/>
     <classes>
       <class name="com.qa.test.LoginTestcases">
         <methods>
+          <include name="invalidEmail"/>
           <include name="afterClass"/>
+          <include name="unregisteredEmail"/>
           <include name="beforeMethod"/>
           <include name="beforeTest"/>
+          <include name="invalidPassword"/>
           <include name="successfulLogin"/>
           <include name="afterMethod"/>
           <include name="beforeClass"/>
-          <include name="beforeMethod"/>
           <include name="afterMethod"/>
+          <include name="beforeMethod"/>
           <include name="afterTest"/>
         </methods>
       </class> <!-- com.qa.test.LoginTestcases -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Real Android(failed) -->
 </suite> <!-- Failed suite [Suite] -->
